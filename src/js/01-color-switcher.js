@@ -16,10 +16,12 @@ refs.startBtn.addEventListener('click', () => {
   intervalId = setInterval(() => {
     document.body.style.backgroundColor = getRandomHexColor();
     refs.startBtn.disabled = true;
+    refs.stopBtn.disabled = false;
   }, 1000);
 });
 
 refs.stopBtn.addEventListener('click', () => {
   clearInterval(intervalId);
   refs.startBtn.disabled = false;
+  refs.stopBtn.disabled = true;
 });
