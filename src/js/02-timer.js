@@ -5,16 +5,16 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const refs = {
   timeValues: document.querySelectorAll('.value'),
   startBtn: document.querySelector('button[data-start]'),
+  daysEl: document.querySelector('span[data-days]'),
+  hoursEl: document.querySelector('span[data-hours]'),
+  minutesEl: document.querySelector('span[data-minutes]'),
+  secondsEl: document.querySelector('span[data-seconds]'),
 };
 
 let ms = 0;
 let currentTime = null;
 let setTime = null;
 let intervalId = null;
-const daysElem = document.querySelector('span[data-days]');
-const hoursElem = document.querySelector('span[data-hours]');
-const minutesElem = document.querySelector('span[data-minutes]');
-const secondsElem = document.querySelector('span[data-seconds]');
 
 const options = {
   enableTime: true,
@@ -64,10 +64,10 @@ function onStartClick() {
     currentTime = Date.now();
     ms = setTime - currentTime;
     let time = convertMs(ms);
-    daysElem.textContent = time.days;
-    hoursElem.textContent = time.hours;
-    minutesElem.textContent = time.minutes;
-    secondsElem.textContent = time.seconds;
+    refs.daysEl.textContent = time.days;
+    refs.hoursEl.textContent = time.hours;
+    refs.minutesEl.textContent = time.minutes;
+    refs.secondsEl.textContent = time.seconds;
     // console.log(ms);
     if (ms < 1000) {
       clearInterval(intervalId);
