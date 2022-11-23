@@ -68,7 +68,6 @@ function onStartClick() {
     refs.hoursEl.textContent = time.hours;
     refs.minutesEl.textContent = time.minutes;
     refs.secondsEl.textContent = time.seconds;
-    // console.log(ms);
     if (ms < 1000) {
       clearInterval(intervalId);
     }
