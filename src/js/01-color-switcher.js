@@ -9,19 +9,19 @@ const refs = {
 
 let intervalId = null;
 
-// startBtn.addEventListener('click', onStartClick);
-// stopBtn.addEventListener('click', onStopClick);
+refs.startBtn.addEventListener('click', onStartClick);
+refs.stopBtn.addEventListener('click', onStopClick);
 
-refs.startBtn.addEventListener('click', () => {
+function onStartClick() {
+  refs.startBtn.disabled = true;
+  refs.stopBtn.disabled = false;
   intervalId = setInterval(() => {
     document.body.style.backgroundColor = getRandomHexColor();
-    refs.startBtn.disabled = true;
-    refs.stopBtn.disabled = false;
   }, 1000);
-});
+}
 
-refs.stopBtn.addEventListener('click', () => {
+function onStopClick() {
   clearInterval(intervalId);
   refs.startBtn.disabled = false;
   refs.stopBtn.disabled = true;
-});
+}
